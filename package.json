@@ -1,0 +1,50 @@
+{
+  "name": "koa3-vue3-docker",
+  "version": "1.0.0",
+  "description": "前后端分离系统模板 - Koa3 + Vue3 + SQLite3 + Docker",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter backend dev",
+    "dev:web": "pnpm --filter frontend dev",
+    "build": "node scripts/build-all.js",
+    "build:frontend": "pnpm --filter frontend build",
+    "build:backend": "pnpm --filter backend build",
+    "start": "pnpm --filter backend start",
+    "docker:build": "docker build -t koa3-vue3-app .",
+    "docker:run": "docker run -p 3000:3000 koa3-vue3-app",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.5",
+    "pnpm": "^8.0.0",
+    "sass": "^1.98.0",
+    "sass-loader": "^16.0.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@koa/cors": "^5.0.0",
+    "axios": "^1.13.6",
+    "jsonwebtoken": "^9.0.3",
+    "koa": "^3.1.2",
+    "koa-bodyparser": "^4.4.1",
+    "koa-static": "^5.0.0",
+    "nodemon": "^3.1.14",
+    "pinia": "^3.0.4",
+    "sql.js": "^1.14.1",
+    "uuid": "^13.0.0",
+    "vue": "^3.5.30",
+    "vue-router": "^5.0.4",
+    "@koa/router": "^15.3.1",
+    "dotenv": "^17.3.1",
+    "sequelize": "^6.37.8",
+    "node-fetch": "^3.3.2",
+    "multer": "^2.1.1",
+    "mysql2": "^3.20.0",
+    "@koa/multer": "^4.0.0",
+    "better-sqlite3": "^12.8.0"
+  }
+}

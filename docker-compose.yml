@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: koa3-vue3-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env.docker
+    volumes:
+      - app-data:/app/dist/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  app-data:
+    driver: local
